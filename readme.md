@@ -1,5 +1,6 @@
 <!--Actually 10:37 WDI2-->
 
+<!--10:15 WDI3 -->
 <!--10:10 25 minutes-->
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
@@ -11,6 +12,7 @@
 You and the people at Tunr want to add some functionality to your talent management application. You and your partner get the benefit of starting with the existing application that can already CRUD artists. Now Tunr has hired you guys to also keep track of their managers and songs!
 
 <!--Show the fully functioning artist part first -->
+<!--WDI3 10:23 pairing up and setting up -->
 
 ## Starting Off
 
@@ -40,13 +42,15 @@ You and the people at Tunr want to add some functionality to your talent managem
 
 ## Requirements
 
+<!--10:38 WDI3 -->
 <!--10:35 25 minutes-->
 
 <!--Instructor should model the entire `show` route all the way through to the back end. Devs will be at half-mast for this.  Then turn over to devs to code themselves.-->
 
-<!--Started modeling at 10:54 -->
+<!--Started modeling at 10:54 WDI2-->
 
-<!--Finished modeling at 11:40 -->
+<!--Finished modeling at 11:40 WDI2-->
+<!--Finished modeling 11:17 WDI3 -->
 
 - Sprint 1: User can CRUD managers
   - As of now, the only route that works for managers is `index`.  Go to `/managers` in your browser to check it out!  Not very impressive I suppose, but it will be once we build out the rest of the CRUD functionality, using the CRUDable `artists` as an inspiration.
