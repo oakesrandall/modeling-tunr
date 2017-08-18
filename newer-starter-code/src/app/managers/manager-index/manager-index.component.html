@@ -4,7 +4,6 @@
 
 <div class="managers">
   <div class="row" *ngFor="let manager of allManagers">
-    <img [src]="manager.photoUrl" [alt]="manager.name">
     <ul>
       <li>
         <h2>
@@ -12,6 +11,15 @@
             {{manager.name}}
           </a>
         </h2>
+      </li>
+      <li>
+        <h3>{{manager.email}}</h3>
+      </li>
+      <li>
+        <h3>{{manager.office_number}}</h3>
+      </li>
+      <li>
+        <h3>{{manager.cell_phone_number}}</h3>
       </li>
       <li>
         <a routerLink="/managers/{{manager.id}}/edit">
