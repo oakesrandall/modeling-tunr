@@ -17,14 +17,17 @@ You and the people at Tunr want to add some functionality to your talent managem
 ## Starting Off
 
 * Use the code in `starter-code` to get started!
-* `npm install` and `--save` the following packages
-	* `express` `sequelize` `pg` `pg-hstore` `body-parser`
-* Go into the `public` folder, and `bower install` and `--save` the following packages
-	* `angular` `angular-route`
+* Go into your `src` folder and `npm install` and `--save` the following packages
+	* `express` `sequelize` `pg` `pg-hstore` `body-parser` `@types/node`
 * Look inside `models/index.js` and create the database at the end of the connect URL (in the `psql` console)
 * Replace the `<username>` field with your local Mac username
-* Look at `db/dbSetup.js`. Get a basic idea for what it is doing, then run it with `node`.
-* Run nodemon on `server.js`
+* Look at `db/dbSetup.ts`. Get a basic idea for what it is doing, then run it with `ts-node`.
+
+>**Note:** If you get an error saying the `ts-node` command could not be found, you may need to install `ts-node` globally with `npm`.
+
+* Add all `node` types to your TypeScript project by adding the following to your `src/main.ts` file
+	* /// <reference types="node" />
+* Run `npm start` to kick off the app.
 * Open your app in Chrome and check out the functionality for viewing, adding, and updating artists.
 	* Create two artists
 	* Verify that you can see these artists
