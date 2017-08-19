@@ -1,0 +1,17 @@
+<h2>Edit Manager</h2>
+
+<form (ngSubmit)="updateManager(updatedManager)">
+  <label for="name">Name:</label>
+  <input name="name" [(ngModel)]="updatedManager.name">
+
+  <label for="photoUrl">Email:</label>
+  <input name="photoUrl" [(ngModel)]="updatedManager.email">
+
+  <label for="nationality">Office Number:</label>
+  <input name="nationality" [(ngModel)]="updatedManager.office_number">
+
+  <label for="instrument">Cell Number:</label>
+  <input name="instrument" [(ngModel)]="updatedManager.cell_phone_number">
+
+  <input type="submit" value="Update">
+</form>

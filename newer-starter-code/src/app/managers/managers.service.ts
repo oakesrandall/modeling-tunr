@@ -4,8 +4,6 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ManagersService {
 
-	allManagers = [];
-
 	baseUrl = 'http://localhost:3000';
 
 	getAllManagers() {

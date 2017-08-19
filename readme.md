@@ -19,7 +19,7 @@ You and the people at Tunr want to add some functionality to your talent managem
 * Use the code in `starter-code` to get started!
 * Go into your `src` folder and `npm install` and `--save` the following packages
 	* `express` `sequelize` `pg` `pg-hstore` `body-parser` `@types/node`
-* Look inside `src/models/index.js` and create the database at the end of the connect URL (in the `psql` console)
+* Look inside `src/models/index.ts` and create the database at the end of the connect URL (in the `psql` console)
 * Replace the `<username>` field with your local Mac username
 * Look at `src/db/dbSetup.ts`. Get a basic idea for what it is doing, then run it with `ts-node`.
 
@@ -57,50 +57,26 @@ You and the people at Tunr want to add some functionality to your talent managem
 
 - Sprint 1: User can CRUD managers
   - As of now, the only route that works for managers is `index`.  Go to `/managers` in your browser to check it out!  Not very impressive I suppose, but it will be once we build out the rest of the CRUD functionality, using the CRUDable `artists` as an inspiration.
-	  - Fill out your front-end routes in `js/client.js`, using the artists routes as a model.  For now, it is okay to show plain HTML with no template files or controllers.  Something like this: 
-	```js
-	//new
-	.when('/managers/new', {
-		template: '<h1>New Manager Yay!</h1>'
-	})	
-	```
-	  - Create simple front-end templates for `show.html`, `edit.html`, and `new.html` in `public/templates/managers`, using the artists templates and the managers `index.html` as models.  Do NOT copy-and-paste, you need to change all the fields in these templates to match your manager attributes, namely `name`, `email`, `office_number`, and `cell_phone_number`.  A good way to do this is to have an artist template on the left side of your screen, and the corresponding manager template on the right side.
-	  
-	  <blockquote>**Note:** Once you are done creating a template, change the hard-coded `template` in your front-end route to a `templateUrl` pointing to the file.  Test each file to make sure it looks OK before you move on to the next one. No managers showing up?  Exactly, we haven't made any data yet.  Let's do that now...</blockquote>
-	  
-	  - Fill out your front-end controllers for `public/js/controllers/manager.js`, one at a time, using `public/js/controllers/artist.js` as a model. Follow the same left-side-right-side technique as you did for templates. We do not need `$http` yet, though.  For now, you can just create a hard-coded array of two managers like `Ricky Bobby` below and a similar one like `Bicky Robby`. That will look something like this:
-	  
-	  ```js
-
-	  var managers = [
-		{
-			name: "Ricky Bobby",
-			email: "rbobby@gmail.com",
-			office_number: "516-877-0304",
-			cell_phone_number: "718-989-1231",
-			id: 0
-		},
-		...
-	  ```	
-	  
-	<blockquote>**Note:** Make sure to add these manager controllers into your front-end routes if you haven't already, using the artists routes as a model.</blockquote>
-	
-	<blockquote>**Note:** For `edit` and `new`, it is okay that your managers do not persist.  As long as you can see them in the Dev Tools console, you're ready to move on.</blockquote>
-	
-	  - Create managers back-end routes in your `routes.js` file, following the same format as artists.  
-	  - Give `managers.js` in your back-end `controllers` folder all the functions you already have in `artists.js`.  For now, these should just use the hard-coded array of managers you created earlier (copy it over from the front-end controller).
-	  
-	  <blockquote>**Note:** We should test that our back end is working for POST, PUT, and DELETE before moving to the front end.  What mail-themed program might we use to test these API routes?</blockquote>
-	  
-	  - Now wire up `$http` on your front-end managers controller, following the left-side-right-side technique with the `artist.js` front-end controller.  Test this out on your browser.  Now we have everything we need except for data persistence.  Let's put a bow on our managers--*Sequelize style*.
+	  - Create components for `manager-show`, `manager-edit`, and `manager-new` in `src/app/managers/`.  The easiest way to do this is to go into the `src/app/managers/` and run `ng g c ____` in that directory.
+	  	- Make sure all of these Components are imported into `managers.module.ts` with the proper path (spoiler alert: they won't be the proper path).
+	  	- Import all of these components to `manager-routing.module.ts` and . 
+	  - Fill out your front-end routes in `src/app/managers/manager-routing.module.ts`, using the artists routes as a model.
+	  - Test your work so far by opening your browser and going to `/managers/show/1`, `managers/new`, and `managers/edit/1`.
+	  - Use the artists templates and the managers `manager-index.component.html` as models to fill out a `manager-show.component.html`, a `manager-edit.component.html`, and a `manager-new.component.html` template.  Do NOT copy-and-paste, you need to change all the fields in these templates to match your manager attributes, namely `name`, `email`, `office_number`, and `cell_phone_number`.  A good way to do this is to have an artist template on the left side of your screen, and the corresponding manager template on the right side.
+	  - Kill and run `npm start` again.  Looks like we've got some errors.  Yay!  Work with your partner to clear them all.  Use the working `artists` files for help if you're not sure how to resolve the errors.  Stub out (use `console.log`) for any methods.  Don't do anything with `ArtistsService`/`ManagersService` yet, we will cover that in the next step.
+	  - Once all your errors are gone, check out your `managers/edit/1` and `managers/new` in your browser. Cool, we have forms! Now let's actually put some data in there.
+	  - Fill out your front-end service functions in `app/managers/managers.service.ts`, one at a time, using `app/artists/artists.service.ts` as a model. Follow the same left-side-right-side technique as you did for templates.
+		- Import this service into all your manager Components, and fill out the Component functions you stubbed out a couple steps ago, using the artist Components as a guide.
+	  - Kill and run `npm start` again.  Clear out any errors you see in the terminal, and then try to create a new manager at `managers/new`.  If you look in the Dev Tools console, you should see your manager.  However, we're getting a 404 for our `http` request.  Makes sense, right?  We haven't built our back end yet.  It's time to go full stack.
+	  - Create managers back-end routes in your `src/config/routes.ts` file, following the same format as artists.  
+	  - Give `managers.ts` in your back-end `src/controllers` folder all the functions you already have in `artists.ts`. Now we have everything we need except for data persistence.  Let's put a bow on our managers--*Sequelize style*.
 	  - Finish the `Manager` model for your database, inside your `models` folder. Give it the attributes `name`, `email`, `office_number`, and `cell_phone_number`, all of type `String`.
-	  - Now go back to your back-end `managers.js` controller and use the `artists.js` controller as a model for all of your DB methods.
 	  - Test out all your routes to make sure `manager` has the same functionality as `artist`.
 
->**Hint:** Once you have finished the steps above, you will see an error in the terminal saying something like `column "email" of relation "managers" does not exist`. If you see this, you need to recreate your `managers` table, so you should run `dbSetup.js` again.
+>**Note:** Once you have finished the steps above, you will see an error in the terminal saying something like `column "email" of relation "managers" does not exist`. If you see this, you need to recreate your `managers` table, so you should run `db/dbSetup.ts` with `ts-node` again.
 
 - Sprint 2: User can CRUD songs
-  - Same as above, create `songs` routes and templates for the front end.
+  - Same as above, create `songs` routes and components for the front end.
   - Same as above, create `songs` templates for the front end.  
   - Same as above, create `songs` controllers for the front end.  
   - Same as above, create `songs` routes for the back end.
@@ -115,7 +91,7 @@ You and the people at Tunr want to add some functionality to your talent managem
 	- It would be a good idea to chain your `create`s with `.then`s.  
 	- Don't forget to `.exit()` when you're done with your last `create`.
   
-Put the following into your DB with `db/seed.js`:
+Put the following into your DB with `db/seed.ts`:
 
   **Artist**:  
 

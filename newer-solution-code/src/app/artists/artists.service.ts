@@ -4,9 +4,6 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ArtistsService {
 
-	allArtists = [];
-	oneArtist;
-
 	baseUrl = 'http://localhost:3000';
 
 	getAllArtists() {

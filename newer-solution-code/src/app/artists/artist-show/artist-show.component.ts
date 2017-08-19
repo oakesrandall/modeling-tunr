@@ -10,7 +10,6 @@ import { ArtistsService } from '../artists.service';
 export class ArtistShowComponent implements OnInit {
 
 	oneArtist;
-	artistId;
 
   constructor(
   	private route : ActivatedRoute,
