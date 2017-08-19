@@ -78,7 +78,7 @@ You and the people at Tunr want to add some functionality to your talent managem
 - Sprint 2: User can CRUD songs
   - Same as above, create `songs` routes and components for the front end.
   - Same as above, create `songs` templates for the front end.  
-  - Same as above, create `songs` controllers for the front end.  
+  - Same as above, create `songs` service for the front end.  
   - Same as above, create `songs` routes for the back end.
   - Same as above, create `songs` controllers for the back end.
   - Same as above, give the `Song` model attributes `title`, `duration`, `date_of_release`, and `album_title`.
