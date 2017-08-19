@@ -2,6 +2,7 @@ import * as express from 'express';
 var router = express.Router();
 import { artistsController } from '../controllers/artists';
 import { managersController } from '../controllers/managers';
+import { songsController } from '../controllers/songs';
 
 //Artist Routes
   
@@ -38,5 +39,20 @@ router.put('/api/managers/:id', managersController.update);
 router.delete('/api/managers/:id', managersController.destroy);
 
 //Song Routes
+
+// index
+router.get('/api/songs', songsController.index);
+
+// create
+router.post('/api/songs', songsController.create);
+
+// show
+router.get('/api/songs/:id', songsController.show);
+
+// update
+router.put('/api/songs/:id', songsController.update);
+
+// destroy
+router.delete('/api/songs/:id', songsController.destroy);
 
 export {router};
