@@ -16,7 +16,7 @@ You and the people at Tunr want to add some functionality to your talent managem
 
 ## Starting Off
 
-* Use the code in `starter-code` to get started!
+* Use the code in `newer-starter-code` to get started!
 * Go into your `src` folder and `npm install` and `--save` the following packages
 	* `express` `sequelize` `pg` `pg-hstore` `body-parser` `@types/node`
 * Look inside `src/models/index.ts` and create the database at the end of the connect URL (in the `psql` console)
@@ -34,7 +34,7 @@ You and the people at Tunr want to add some functionality to your talent managem
 	* Update a field for one of the artists
 	* Delete one of the artists
 * For reference, check the [Sequelize Docs](http://docs.sequelizejs.com/en/latest/) throughout this lab
-* Lean heavily on your `starter-code`, but go slowly--one function, one route at a time
+* Lean heavily on your `newer-starter-code`, but go slowly--one function, one route at a time
 * Make sure you test early and often, preferably multiple times per step (bullet point)
 * Tab and Sublime Text shortcuts are your friend, Copy-and-Paste is not.
 * If you get stuck, get unstuck! Advice for getting unstuck includes:
